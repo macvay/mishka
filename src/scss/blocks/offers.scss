@@ -1,0 +1,109 @@
+.offers{
+    position: relative;
+    text-align: center;
+    @include wrapper($mobile-width,0);
+    background-image: url(img/hero-mobile.jpg);
+    background-color: #f8f8f8;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    padding-top: 35px;
+    margin-bottom: 30px;
+}
+.offers__header{
+    @include margin-vertical(0);
+    @include font(27px, 30px, none, 700);
+    margin-bottom: 120px;
+    @include padding-horizontal($mobile-padding);
+}
+.offers__list{
+    display: flex;
+    flex-direction: column;
+    @include drop-list;
+}
+.offers__item{
+    display: flex;
+}
+
+.offers__link{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $light-blue;
+    @include padding-horizontal($mobile-padding);
+}
+.offers__name{
+    @include font(19px, 24px, none, 700);
+    color: $white;
+    @include margin-vertical(0);
+    width: 140px;
+    text-align: left;
+}
+.offers__link:hover .offers__img,
+.offers__link:hover .offers__name{
+    opacity: 0.7;
+}
+.offers__link:active .offers__img,
+.offers__link:active .offers__name{
+    opacity: 0.3;
+}
+.offers__item:nth-child(even) .offers__link{
+    background-color: darken($color: $light-blue, $amount: 15%);
+}
+.offers__figure{
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+.offers__img{
+    max-width: 60px;
+    max-height: 70px;
+    opacity: 0.5;
+}
+@media (min-width:$tablet-width){
+    .offers{
+        @include wrapper($tablet-width,$tablet-padding);
+        margin-top: -70px;
+        padding-top: 160px;
+        background-image: url(img/hero-tablet.jpg);
+        margin-bottom: 60px;
+    }
+    .offers__list{
+        flex-direction: row;
+
+    }
+    .offers__header{
+        @include padding-horizontal(130px);
+        @include font(43px, 50px, none, 700);
+        margin-bottom: 340px;
+    }
+    .offers__item{
+        width: 50%;
+    }
+    .offers::after{
+        height: 20px;
+        content: "";
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        background-image: url(img/zigzag.png);
+    }
+}
+@media (min-width:$desktop-width){
+    .offers{
+        @include wrapper($desktop-width,$desktop-padding);
+        margin-top: -70px;
+        background-image: url(img/hero-desktop.jpg);
+        margin-bottom: 85px;
+    }
+    
+    .offers__header{
+        @include font(53px, 57px, none, 700);
+    }
+}

@@ -1,0 +1,125 @@
+.reviews{
+    @include wrapper($mobile-width,0);
+    position: relative;
+    margin-bottom: 50px;
+}
+.reviews__item{
+    position: relative;
+    z-index: 2;
+    @include wrapper($mobile-width,$mobile-padding);
+}
+.reviews__header{
+    @include font(25px, 30px,none, 700);
+}
+.reviews__text{
+    @include font(15px, 30px);
+    text-align: justify;
+}
+.reviews__text,
+.reviews__header,
+.reviews__info{
+    margin:0;
+    margin-bottom: 30px;
+}
+.reviews__reviewer{
+    @include font(15px, 30px, none, 700);
+    margin: 0;
+}
+.reviews__link{
+    @include font(15px, 30px);
+   
+    color: $black;
+    text-decoration-color: $light-blue;
+    &:hover{
+        color: $light-blue;
+    }
+    &:active{
+        opacity: $opacity-active;
+    }
+}
+.reviews__buttons{
+    display: flex;
+}
+.reviews__button{
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: $white;
+    @include padding-vertical(15px);
+    border: none;
+    margin-bottom: 30px;
+    border: 1px solid $grey;
+}
+.reviews__picture{
+    display: none;
+}
+@media (min-width:$tablet-width){
+    .reviews{
+        @include wrapper($tablet-width,0);
+        margin-bottom: 70px;
+    }
+    .reviews__item{
+        @include wrapper($tablet-width,$tablet-padding);
+        @include padding-vertical(80px);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .reviews__text{
+        width: 100%;
+    }
+    .reviews__picture{
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        height: 100%;
+    }
+    .reviews__picture img{
+        height: 100%;
+    }
+    .reviews__header{
+        @include font(43px, 50px, none, 700);
+        order: 1;
+    }
+    .reviews__reviewer{
+        @include font(17px, 30px,none, 700);
+    }
+    .reviews__text{
+        @include font(17px, 30px);
+        order: 3;
+    }
+    .reviews__link{
+        @include font(17px, 30px);
+    }
+    .reviews__send{
+        width: 170px;
+        order: 2;
+    }
+    .reviews__buttons{
+        width: 170px;
+    }
+    .reviews__info{
+        order: 4;
+    }
+    .reviews__buttons{
+        order: 5;
+    }
+}
+@media (min-width:$desktop-width){
+    .reviews{
+        @include wrapper($desktop-width,$desktop-padding);
+        margin-bottom: 70px;
+    }
+    .reviews__item{
+        @include wrapper($desktop-width,0);
+        padding-left: 170px;
+        width: auto;
+    }
+    .reviews__picture{
+        left: 100px;
+    }
+}

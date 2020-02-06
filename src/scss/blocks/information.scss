@@ -1,0 +1,119 @@
+.information{
+    padding-top: 40px;
+}
+.information__header,
+.information__table,
+.information__button{
+    @include wrapper($mobile-width,$mobile-padding);
+}
+.information__map{
+    @include wrapper($mobile-width,0);
+    margin-bottom: 40px;
+}
+.information__header{
+    @include font(18px, 30px,none, 700);
+    text-align: left;
+    margin-bottom: 40px;
+}
+.information__button{
+    margin-bottom: 40px;
+    
+}
+.information__table{
+    margin-bottom: 40px;
+}
+.information__cell {
+    @include font(15px, 30px);
+    vertical-align: top;
+    &--left{
+        width: 25%;
+    }
+    &--right{
+        width: 70%;
+    }
+}
+.information__cell a{
+    color: $black;
+    text-decoration-color: $light-blue;
+    &:hover{
+        color: $light-blue;
+    }
+    &:active{
+        opacity: $opacity-active;
+    }
+}
+@media (min-width:$tablet-width){
+    .information__header,
+    .information__table,
+    .information__button{
+        @include wrapper($tablet-width,$tablet-padding);
+    }
+    .information__map{
+        @include wrapper($tablet-width,0);
+        
+    }
+    .information__header{
+        @include font(43px, 50px,none, 700);
+    }
+    .information__table,
+    .information__button,
+    .information__map,
+    .information__header{
+        margin-bottom: 60px;
+    }
+    .information__table tbody{
+        display: flex;
+    }
+    .information__row{
+        width: 50%;
+    }
+    .information__button{
+        width: 230px;
+        @include padding-horizontal(0);
+    }
+}
+@media (min-width:$desktop-width){
+    .information{
+        @include wrapper($desktop-width,$desktop-padding);
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding-top: 0px;
+      
+        height: 460px;
+        padding-left: 270px;
+        margin-bottom: 100px;
+    }
+    .information__header,
+    .information__table,
+    .information__button,
+    .information__map{
+        @include wrapper(auto,0);
+        width: 50%;
+    }
+    .information__table tbody{
+        display: table;
+    }
+    .information__map{
+        order: 4;
+    }
+    .information__button{
+        order: 3;
+        margin-top: auto;
+        width: 230px;
+        @include margin-horizontal(0);
+    }
+    
+    .information__header{
+        order: 1;
+        margin-top: 80px;
+        margin-bottom: 60px;
+    }
+    .information__cell{
+        padding-bottom: 20px;
+    }
+    .information__table{
+        order: 2;
+        margin-bottom: 20px;
+    }
+}

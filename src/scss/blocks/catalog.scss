@@ -1,0 +1,134 @@
+.catalog{
+    @include wrapper($mobile-width, 0);
+}
+.catalog__list{
+    @include drop-list;
+    
+}
+.catalog__item{
+    margin-bottom: 30px;
+    border: 1px solid lighten($color: $grey, $amount: 70%);
+
+    &:hover{
+        box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.1);
+    }
+    &:active{
+        box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+    }
+}
+.catalog__picture{
+    width: 100%;
+    height: 195px;
+    display: block;
+    
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.catalog__info{
+    @include padding-horizontal($mobile-padding);
+    @include link($black);
+    display: block;
+    @include padding-vertical(25px);
+    &:hover{
+        h3{
+            opacity: $opacity-hover;
+        }
+        .icon{
+            fill: $light-blue;
+        }
+    }
+    &:active{
+        h3{
+            opacity: $opacity-active;
+        }
+        .icon{
+            fill: $light-blue;
+            opacity: $opacity-active;
+        }
+    }
+}
+.catalog__name{
+    @include font(17px, 24px, none, 700);
+    margin:0;
+    margin-bottom: 20px;
+}
+.catalog__description{
+    @include font(13px, 30px);
+    margin:0;
+    margin-bottom: 30px;
+}
+.catalog__price{
+    padding-top: 20px;
+    margin: 0;
+    @include font(17px, 24px, none, 700);
+    border-top: 1px solid lighten($color: $grey, $amount: 60%);
+    display: flex;
+    justify-content: space-between;
+}
+@media (min-width:$tablet-width){
+    .catalog{
+        @include wrapper($tablet-width,0);
+    }
+    .catalog__item{
+        display: flex;
+    }
+    .catalog__info,
+    .catalog__picture{
+        width: 50%;
+    }
+    .catalog__info{
+        display: flex;
+        flex-direction: column;
+    }
+    .catalog__description{
+        word-wrap: break-word;
+    }
+    .catalog__price{
+        margin-top: auto;
+    }
+    .catalog__picture{
+        height: 335px;
+    }
+}
+@media (min-width:$desktop-width){
+    .catalog{
+        @include wrapper($desktop-width,0);
+        margin-bottom: 40px;
+    }
+    .catalog__list{
+        display: flex;
+        justify-content: space-between;
+
+    }
+    .catalog__item{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+    }
+    .catalog__info,
+    .catalog__picture{
+        width: 100%;
+        overflow: hidden;
+    }
+    .catalog__picture{
+        height: 462px;
+    }
+    .catalog__name{
+        @include font(20px, 24px, none, 700);
+        
+    }
+    .catalog__info{
+        display: flex;
+        flex-direction: column;
+    }
+    .catalog__description{
+        @include font(15px, 30px);
+        
+    }
+    .catalog__price{
+        @include font(20px, 24px, none, 700);
+        margin-top: auto;
+    }
+}

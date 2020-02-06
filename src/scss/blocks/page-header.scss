@@ -1,0 +1,37 @@
+.page-header{
+    background-color: lighten($color: $grey, $amount: 40%);
+    @include font(27px, 30px, none, 700);
+    @include wrapper($mobile-width,$mobile-padding);
+    text-align: center;
+    margin-bottom: 30px;
+    @include padding-vertical(80px);
+    position: relative;
+    z-index: 0;
+}
+@media (min-width:$tablet-width){
+    .page-header{
+        @include wrapper($tablet-width,$tablet-padding);
+        margin-top: -75px;
+        padding-top: 105px;
+        margin-bottom: 90px;
+        @include font(43px, 50px, none, 700);
+    }
+    .page-header::after{
+        height: 20px;
+        content: "";
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        background-image: url(img/zigzag.png);
+    }
+}
+@media (min-width:$desktop-width){
+    .page-header{
+        @include wrapper($desktop-width,$desktop-padding);
+        margin-top: -75px;
+        padding-top: 105px;
+        margin-bottom: 90px;
+        @include font(43px, 50px, none, 700);
+    }
+}

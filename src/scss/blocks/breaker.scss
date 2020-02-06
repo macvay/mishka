@@ -1,0 +1,21 @@
+.breaker{
+    @include wrapper($mobile-width,0);
+    height: 6px;
+    background-image: url(img/breaker-mobile.png);
+    background-position: top left;
+    margin-bottom: 30px;
+}
+@media (min-width:$tablet-width){
+    .breaker{
+        height: 17px;
+        @include wrapper($tablet-width,0);
+        background-image: url(img/breaker-tablet.png);
+        margin-bottom: 40px;
+    }
+}
+@media (min-width:$desktop-width){
+    .breaker{
+        @include wrapper($desktop-width,0);
+        margin-bottom: 40px;
+    }
+}

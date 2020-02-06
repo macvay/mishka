@@ -1,0 +1,268 @@
+.form{
+    @include wrapper($mobile-width, $mobile-padding);
+    @include font(13px, 24px);
+    color: lighten($color: $grey, $amount: 30%);
+    margin-bottom: 55px;
+}
+.form__fieldset{
+    padding:0;
+    margin:0;
+    border: 0;
+    width: 100%;
+    border-top: 1px solid $light-blue;
+    @include padding-vertical(20px);
+    &--special{
+        border: 0;
+        padding: 0;
+    }
+}
+.form__button{
+    width: 100%;
+}
+.form__field{
+    margin: 0;
+    margin-bottom: 25px;
+  
+    
+}
+.form__label{
+    @include font(17px, 18px, none, 700);
+    color: $black;
+    &--check{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        .form__input{
+            width: 40px;
+            height: 40px;
+            margin-right: 20px;
+            background-color: transparent;
+            &--radio{
+                border-radius: 20px;
+            }
+        }
+        .form__indicator{
+            width: 40px;
+            height: 40px;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: white;
+            border: 2px solid $black;
+        }
+        &:hover .form__indicator{
+            border: 2px solid $light-blue;
+        }
+        &:active .form__indicator{
+            border: 2px solid lighten($color: $grey, $amount: 50%);
+        }
+        .form__input--radio + .form__indicator{
+            border-radius: 20px;
+        }
+        .form__input--radio:checked + .form__indicator::before{
+            display: block;
+            content: "";
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            border-radius: 50%;
+            background-color: $light-blue;
+        }
+        .form__input:checked + .form__indicator::before{
+            display: block;
+            content: "";
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            background-color: $light-blue;
+        }
+    }
+    &--special{
+        @include font(17px, 16px, uppercase,700);
+        display: block;
+        background-color: $white;
+        color: $light-blue;
+    }
+    &--text{
+        position: relative;
+        .form__input{
+            @include padding-vertical(15px);
+            border: none;
+            outline: none;
+            border-bottom: 2px solid $black;
+            margin-bottom: 25px;
+            display: block;
+            padding-right: 40px;
+            box-sizing: border-box;
+            min-width: auto;
+            width: 100%;
+            position: relative;
+            &:hover,
+            &:active,
+            &:focus{
+                border-bottom: 2px solid $light-blue;
+            }
+            
+        }
+        
+        .form__icon{
+            display: flex;
+            width: 40px;
+            height: 50px;
+ 
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            right: 0;
+            bottom: 0;
+            @include margin-vertical(auto);
+        }
+        .icon{
+            fill: lighten($color: $grey, $amount: 50%);
+        }
+        &:hover .icon,
+        &:active .icon,
+        &:focus .icon{
+            fill: $light-blue;
+        }
+    }
+}
+.form__legend{
+    @include font(17px, 16px, uppercase,700);
+    color: $light-blue;
+    padding-right:  25px;
+    display: block;
+    margin-bottom: 20px;
+    background-color: $white;
+}
+.form__textarea{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    border: 2px solid $black;
+    margin-bottom: 25px;
+    display: block;
+    padding-right: 40px;
+    box-sizing: border-box;
+    min-width: auto;
+    width: 100%;
+    &:hover,
+    &:active,
+    &:focus{
+        border: 2px solid $light-blue;
+    }
+}
+.form__required{
+    margin-top: 0;
+    @include font(14px, 16px);
+}
+@media (min-width:$tablet-width){
+    .form{
+        @include wrapper($tablet-width, $tablet-padding);
+        @include font(13px, 24px);
+        color: lighten($color: $grey, $amount: 30%);
+        margin-bottom: 55px;
+    }
+    .form__description{
+        margin: 0;
+        margin-bottom: 30px;
+        @include font(17px, 30px);
+    
+    }
+    .form__fieldset{
+        @include padding-vertical(50px);
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        &:nth-child(even){
+            background-color: lighten($color: $grey, $amount: 70%);
+        }
+        &--special{
+            flex-direction: row;
+
+        }
+        .form__wrapper{
+            width: 70%;
+            .form__field{
+                width: 100%;
+            }
+            &--colors,
+            &--types{
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                width: 70%;
+                .form__field{
+                    width: 50%;
+                }
+            }
+        }
+    }
+    .form__input--text{
+        background-color: transparent;
+    }
+    .form__field{
+            width: 70%;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+        &--special{
+            width: 70%;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            
+        }
+    }
+    .form__legend{
+        width: 30%;
+        background-color: transparent;
+        display: block;
+        &--special{
+            margin: 0;
+        }
+    }
+    .form__label {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        &--special{
+            background-color: transparent;
+            width: 100%;
+            display: flex;
+            .form__input{
+                margin: 0;
+            }
+        }
+    }
+    
+    .form__textarea{
+        width: 70%;
+    }
+    .form__send{
+        display: flex;
+        justify-content: space-between;
+        .form__button{
+            width: 30%;
+            order: 1;
+        }
+        .form__required{
+            order: 2;
+        }
+    }
+}
+@media (min-width:$desktop-width){
+    .form{
+        @include wrapper($desktop-width, $desktop-padding);
+        @include font(13px, 24px);
+        color: lighten($color: $grey, $amount: 30%);
+        margin-bottom: 55px;
+    }
+}

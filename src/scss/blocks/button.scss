@@ -1,0 +1,16 @@
+.button{
+    display: block;
+    @include link($black);
+    @include font(16px, 20px, uppercase, 700);
+    @include padding-vertical(15px);
+    background-color: $white;
+    border: 2px solid $black;
+    text-align: center;
+    &:hover{
+        color: $white;
+        background-color: $grey;
+    }
+    &:active{
+        color: rgba($color: $white, $alpha: $opacity-active);
+    }
+}
